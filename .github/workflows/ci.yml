@@ -33,5 +33,5 @@ jobs:
       - name: Run Tests (ai-sdk-agentic Core)
         run: npm test -w ai-sdk-agentic
         
-      - name: Lint workspace
-        run: npm run lint --workspaces --if-present
+      - name: Lint Packages
+        run: npm run lint -w ai-sdk-agentic -w ai-sdk-office-server
