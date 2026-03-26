@@ -1,0 +1,17 @@
+{
+  "name": "agentic-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:core": "npm run build -w ai-sdk-agentic",
+    "build:office-server": "npm run build -w ai-sdk-office-server",
+    "build": "npm run build --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

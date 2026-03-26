@@ -1,0 +1,49 @@
+{
+  "name": "ai-sdk-office-server",
+  "version": "1.0.0",
+  "description": "Bridge between AI SDK Agentic and the Agentic Office visualization frontend.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "ai",
+    "sdk",
+    "agent",
+    "agentic",
+    "office",
+    "visualization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "socket.io": "^4.8.0"
+  },
+  "peerDependencies": {
+    "ai-sdk-agentic": "*"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.0.0",
+    "ai-sdk-agentic": "*",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
+}
