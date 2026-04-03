@@ -1,7 +1,33 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "ai-sdk-office",
+  "version": "1.0.0",
+  "description": "Visualizer for AI SDK Agentic with isometric 2D view",
+  "license": "MIT",
   "type": "module",
+  "bin": {
+    "ai-sdk-office": "./bin/cli.mjs"
+  },
+  "files": [
+    "app",
+    "assets",
+    "components",
+    "composables",
+    "game",
+    "pages",
+    "services",
+    "stores",
+    "types",
+    "utils",
+    "public",
+    "bin",
+    "nuxt.config.ts",
+    "app.config.ts",
+    "app.vue",
+    "tailwind.config.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -27,7 +53,7 @@
     "@nuxt/eslint": "^1.15.2",
     "@vitest/ui": "^4.1.0",
     "@vue/test-utils": "^2.4.6",
-    "ai-sdk-agentic": "*",
+    "ai-sdk-agentic": "^1.0.0",
     "eslint": "^10.0.3",
     "jsdom": "^29.0.1",
     "typescript": "^5.9.3",

@@ -4,10 +4,10 @@ node_modules
 .pnp.js
 
 # Build outputs
-/dist
-/.nuxt
-/.output
-/coverage
+dist
+.nuxt
+.output
+coverage
 
 # Logs
 logs

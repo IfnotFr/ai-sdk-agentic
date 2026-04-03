@@ -45,7 +45,7 @@ export const withConsoleLogger = (options: WithConsoleLoggerOptions = {}): Agent
       const indent = "  ".repeat(level);
       const chatPrefix = isChatStyle ? chalk.gray("💬 ") : "";
       
-      let message = entry.message;
+      let message = entry.message || "";
       if (isChatStyle) message = chalk.italic(message.replace(/\n/g, " "));
       else if (entry.type === "error") message = chalk.red(message);
       
@@ -83,7 +83,7 @@ export const withConsoleLogger = (options: WithConsoleLoggerOptions = {}): Agent
     };
 
     const textHandler = (payload: any) => {
-      handler({ ...payload, type: "agent-text", options: { level: 1, eol: false } });
+      handler({ ...payload, type: "agent-text", message: payload.text, options: { level: 1, eol: false } });
     };
 
     events.on("agent.log", handler);

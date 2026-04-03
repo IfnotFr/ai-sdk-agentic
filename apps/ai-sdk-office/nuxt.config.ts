@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/ui', '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt'],
   ssr: false,
 
+  runtimeConfig: {
+    public: {
+      agentServerUrl: 'http://localhost:3010'
+    }
+  },
+
   devtools: {
     enabled: true
   },

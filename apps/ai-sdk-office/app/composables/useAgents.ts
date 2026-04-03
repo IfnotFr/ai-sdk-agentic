@@ -34,7 +34,8 @@ export const useAgents = () => {
   const connect = () => {
     if (socket.value) return
 
-    const s = io('http://localhost:3010')
+    const config = useRuntimeConfig()
+    const s = io(config.public.agentServerUrl as string)
 
     s.on('connect', () => {
       isConnected.value = true
