@@ -27,6 +27,8 @@ const agent = configureAgent(myAgent, [
 | :--- | :--- | :--- |
 | `name` | `string` | The label displayed in brackets (e.g., `[Support]`). |
 | `color` | `string` | Chalk color for the prefix. |
+| `hideToolInput` | `boolean` | Hide the tool call arguments payload. |
+| `hideToolResult` | `boolean` | Hide the tool execution result payload. |
 
 ## Features
 

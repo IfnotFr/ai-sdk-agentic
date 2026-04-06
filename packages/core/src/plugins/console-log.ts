@@ -5,6 +5,14 @@ import chalk from "chalk";
 export interface WithConsoleLoggerOptions {
   name?: string;
   color?: "magenta" | "cyan" | "white" | "yellow" | "blue" | "green" | "red";
+  /**
+   * Hide the tool call arguments payload.
+   */
+  hideToolInput?: boolean;
+  /**
+   * Hide the tool execution result payload.
+   */
+  hideToolResult?: boolean;
 }
 
 /**
@@ -112,19 +120,20 @@ export const withConsoleLogger = (options: WithConsoleLoggerOptions = {}): Agent
       onToolCallStart: (event: any) => {
         const { toolName, input } = event.toolCall as any;
         const toolLabel = chalk.bold(`🛠️  Calling tool: ${chalk.yellow(toolName)} `);
-        const argsLabel = chalk.dim(JSON.stringify(input));
+        const argsLabel = options.hideToolInput ? "" : chalk.dim(JSON.stringify(input));
         events.log(toolLabel + argsLabel, { level: 1 });
       },
       onToolCallFinish: (event: any) => {
         const { toolName } = event.toolCall;
         if (event.error) {
           events.error(`Tool ${toolName} failed: ${event.error}`, { level: 1 });
-        } else {
+        } else if (!options.hideToolResult) {
           const rawResult = (event as any).result ?? (event as any).toolResult ?? (event as any).output;
           let resultDisplay = "OK";
+
           if (rawResult !== undefined && rawResult !== null) {
             try {
-              resultDisplay = typeof rawResult === 'string' ? rawResult : JSON.stringify(rawResult);
+              resultDisplay = typeof rawResult === "string" ? rawResult : JSON.stringify(rawResult);
             } catch (e) {
               resultDisplay = "[Complex Object]";
             }
