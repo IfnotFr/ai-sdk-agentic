@@ -1,6 +1,6 @@
 {
   "name": "ai-sdk-agentic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Orchestration layer for Vercel AI SDK agents: shared context, mission lifecycle hooks, and tool wrapping.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
